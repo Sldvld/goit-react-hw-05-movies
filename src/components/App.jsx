@@ -1,6 +1,6 @@
 import { Link, Route, Routes, Navigate } from 'react-router-dom';
-import { Home } from 'Pages/Home';
-import { Movies } from 'Pages/Movies';
+import { Home } from 'pages/Home';
+import { Movies } from 'pages/Movies';
 
 export const App = () => {
   return (
