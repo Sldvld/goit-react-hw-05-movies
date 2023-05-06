@@ -1,5 +1,5 @@
 import React from 'react';
 
-export const Movies = () => {
+export default function Movies() {
   return <p>Movies</p>;
-};
+}
