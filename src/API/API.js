@@ -21,3 +21,25 @@ export const fetchById = async id => {
   );
   return data;
 };
+export const fetchCasts = async id => {
+  const { data } = await axios.get(
+    `${BASE_URL}/movie/${id}/credits?api_key=${API_KEY}&language=en-US&page=1&include_adult=false`
+  );
+  return data.cast;
+};
+export const fetchReviews = async id => {
+  const { data } = await axios
+    .get(
+      `${BASE_URL}/movie/${id}/reviews?api_key=${API_KEY}&language=en-US&page=1`
+    )
+    .catch(function (error) {
+      if (error.response) {
+        console.log(error.response.data.status);
+      } else if (error.request) {
+        console.log(error.request);
+      } else {
+        console.log('Error', error.message);
+      }
+    });
+  return data.results;
+};

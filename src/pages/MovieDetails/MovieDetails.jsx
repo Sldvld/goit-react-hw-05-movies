@@ -1,4 +1,4 @@
-import { useLocation, useParams } from 'react-router-dom';
+import { Outlet, useLocation, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import MovieCard from 'components/MovieCard/MovieCard';
 import { fetchById } from '../../API/API';
@@ -20,13 +20,20 @@ export default function MovieDetails() {
 
   return (
     <>
-      <h1>MoviesDetails</h1>
-      {/* <Link to={backLink}>
-        {' '}
-        <button>Go back</button>
-      </Link> */}
+      <Link to={backLink}>
+        <button>← Go back</button>
+      </Link>
 
       <MovieCard movie={movieDetails} />
+      <ul>
+        <li>
+          <Link to="cast">Cast</Link>
+        </li>
+        <li>
+          <Link to="reviews">Reviews</Link>
+        </li>
+      </ul>
+      <Outlet />
     </>
   );
 }
