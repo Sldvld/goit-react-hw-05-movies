@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { fetchTrendsByDay } from '../../API/API';
 import Loader from 'Loader/Loader';
 
-export default function Home() {
+const Home = () => {
   const [movies, setMovies] = useState([]);
   const isLoaded = movies !== null;
 
@@ -18,4 +18,6 @@ export default function Home() {
       {isLoaded && <MoviesList movies={movies} />}
     </>
   );
-}
+};
+
+export default Home;

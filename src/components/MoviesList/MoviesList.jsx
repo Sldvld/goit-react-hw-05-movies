@@ -11,6 +11,7 @@ export const MoviesList = ({ movies }) => {
           <div>
             <Link to={`/movies/${id}`} state={{ from: location }}>
               <img
+                width="250"
                 src={'https://image.tmdb.org/t/p/w500/'.concat(poster_path)}
                 alt={original_name}
               />

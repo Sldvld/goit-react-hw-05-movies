@@ -1,5 +1,8 @@
 import { Link } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
+import { Suspense } from 'react';
+import Loader from '../../Loader/Loader';
+
 export default function Layout() {
   return (
     <>
@@ -15,7 +18,9 @@ export default function Layout() {
         </ul>
       </header>
       <main>
-        <Outlet />
+        <Suspense fallback={<Loader />}>
+          <Outlet />
+        </Suspense>
       </main>
     </>
   );
