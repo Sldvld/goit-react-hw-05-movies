@@ -7,8 +7,12 @@ export default function Cast() {
   const { movieId } = useParams();
 
   useEffect(() => {
-    fetchCasts(movieId).then(setCast);
-    console.log(fetchCasts());
+    console.log(movieId);
+    fetchCasts(movieId)
+      .then(setCast)
+      .catch(error => {
+        console.log(error);
+      });
   }, [movieId]);
 
   if (!cast) {
