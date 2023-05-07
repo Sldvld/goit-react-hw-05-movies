@@ -1,5 +1,5 @@
 import { Outlet, useLocation, useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import MovieCard from 'components/MovieCard/MovieCard';
 import { fetchById } from '../../API/API';
 import { Link } from 'react-router-dom';
@@ -8,6 +8,7 @@ export default function MovieDetails() {
   const [movieDetails, setMovieDetails] = useState(null);
   const { movieId } = useParams();
   const location = useLocation();
+  const backLink = useRef(location.state?.from ?? '/');
 
   useEffect(() => {
     fetchById(movieId).then(setMovieDetails);
@@ -16,11 +17,10 @@ export default function MovieDetails() {
   if (!movieDetails) {
     return null;
   }
-  const backLink = location.state?.from ?? '/';
 
   return (
     <>
-      <Link to={backLink}>
+      <Link to={backLink.current}>
         <button>← Go back</button>
       </Link>
 
