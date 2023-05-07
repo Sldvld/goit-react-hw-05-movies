@@ -1,0 +1,7 @@
+.movieCard {
+  display: flex;
+  padding: 0 30px;
+}
+.movieSubscribes {
+  margin-left: 10px;
+}

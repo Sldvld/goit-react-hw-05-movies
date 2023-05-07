@@ -1,4 +1,6 @@
 import PropTypes from 'prop-types';
+import css from './MovieCard.module.css';
+
 export default function MovieCard({ movie }) {
   const { poster_path, title, release_date, vote_average, overview, genres } =
     movie;
@@ -8,18 +10,18 @@ export default function MovieCard({ movie }) {
   const voteAvarage = vote_average.toFixed(1);
   return (
     <>
-      <div>
-        <img src={imgURL} alt={title} width="350" />
-      </div>
-      <div>
-        <h2>
-          {title} ({realiseDate})
-        </h2>
-        <p>User score: {voteAvarage}</p>
-        <h3>Overview</h3>
-        <p>{overview}</p>
-        <h3>Genres</h3>
-        <p>{genresList} </p>
+      <div className={css.movieCard}>
+        <img src={imgURL} alt={title} width="250" />
+        <div className={css.movieSubscribes}>
+          <h2>
+            {title} ({realiseDate})
+          </h2>
+          <p>User score: {voteAvarage}</p>
+          <h3>Overview</h3>
+          <p>{overview}</p>
+          <h3>Genres</h3>
+          <p>{genresList} </p>
+        </div>
       </div>
     </>
   );

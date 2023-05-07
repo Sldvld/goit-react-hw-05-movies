@@ -1,6 +1,7 @@
 import { fetchReviews } from 'API/API';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import css from './Reviews.module.css';
 
 export default function Reviews() {
   const [review, setReview] = useState(null);
@@ -20,11 +21,11 @@ export default function Reviews() {
 
   return (
     <>
-      <ul>
+      <ul className={css.reviewsList}>
         {review.map(({ id, content, author }) => (
-          <li key={id}>
-            <p>{author}</p>
-            <p>{content}</p>
+          <li className={css.reviewsItem} key={id}>
+            <p className={css.reviewAuthor}>{author}</p>
+            <p className={css.reviewContent}>{content}</p>
           </li>
         ))}
       </ul>

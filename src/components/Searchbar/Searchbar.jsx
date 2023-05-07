@@ -1,13 +1,12 @@
 import PropTypes from 'prop-types';
-import { ReactComponent as IconInput } from '../../Icons/searchIcon.svg';
+import css from './Searchbar.module.css';
 
 export default function Searchbar({ onChange, onSubmit }) {
   return (
-    <form onSubmit={onSubmit}>
-      <input type="text" onChange={onChange} />
-      <button type="submit">
+    <form className={css.form} onSubmit={onSubmit}>
+      <input className={css.searchInput} type="text" onChange={onChange} />
+      <button className={css.searchButton} type="submit">
         Search
-        <IconInput width="25px" height="25px" />
       </button>
     </form>
   );

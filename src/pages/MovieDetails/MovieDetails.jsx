@@ -3,6 +3,7 @@ import { useEffect, useState, useRef } from 'react';
 import MovieCard from 'components/MovieCard/MovieCard';
 import { fetchById } from '../../API/API';
 import { Link } from 'react-router-dom';
+import css from './MovieDetails.module.css';
 
 export default function MovieDetails() {
   const [movieDetails, setMovieDetails] = useState(null);
@@ -20,17 +21,21 @@ export default function MovieDetails() {
 
   return (
     <>
-      <Link to={backLink.current}>
-        <button>← Go back</button>
+      <Link className={css.searchButton} to={backLink.current}>
+        ← Go back
       </Link>
 
       <MovieCard movie={movieDetails} />
-      <ul>
+      <ul className={css.linksCR}>
         <li>
-          <Link to="cast">Cast</Link>
+          <Link className={css.castLink} to="cast">
+            Cast
+          </Link>
         </li>
         <li>
-          <Link to="reviews">Reviews</Link>
+          <Link className={css.reviewsLink} to="reviews">
+            Reviews
+          </Link>
         </li>
       </ul>
       <Outlet />

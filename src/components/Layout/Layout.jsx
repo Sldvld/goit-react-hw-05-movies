@@ -2,18 +2,22 @@ import { Link } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
 import Loader from '../../Loader/Loader';
+import css from './Layout.module.css';
 
 export default function Layout() {
   return (
     <>
       <header>
-        <ul>
-          <li>
-            {' '}
-            <Link to="/">Home</Link>
+        <ul className={css.headerBox}>
+          <li classNmae={css.headerList}>
+            <Link className={css.headerLink} to="/">
+              Home
+            </Link>
           </li>
           <li>
-            <Link to="/movies">Movies</Link>
+            <Link className={css.headerLink} to="/movies">
+              Movies
+            </Link>
           </li>
         </ul>
       </header>

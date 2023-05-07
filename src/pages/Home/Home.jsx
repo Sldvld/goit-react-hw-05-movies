@@ -2,6 +2,7 @@ import { MoviesList } from 'components/MoviesList/MoviesList';
 import { useState, useEffect } from 'react';
 import { fetchTrendsByDay } from '../../API/API';
 import Loader from 'Loader/Loader';
+import css from './Home.module.css';
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
@@ -13,9 +14,11 @@ const Home = () => {
 
   return (
     <>
-      <h1>Trending today</h1>
-      {!isLoaded && <Loader />}
-      {isLoaded && <MoviesList movies={movies} />}
+      <div>
+        <h1 className={css.movieTitle}>Trending today</h1>
+        {!isLoaded && <Loader />}
+        {isLoaded && <MoviesList movies={movies} />}
+      </div>
     </>
   );
 };
