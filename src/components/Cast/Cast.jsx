@@ -7,7 +7,6 @@ export default function Cast() {
   const { movieId } = useParams();
 
   useEffect(() => {
-    console.log(movieId);
     fetchCasts(movieId)
       .then(setCast)
       .catch(error => {
@@ -25,6 +24,7 @@ export default function Cast() {
         {cast.map(({ character, id, name, profile_path }) => (
           <li key={`${id}-${character}`}>
             <img
+              width="200"
               src={'https://image.tmdb.org/t/p/w500/'.concat(profile_path)}
               alt={name}
             />
