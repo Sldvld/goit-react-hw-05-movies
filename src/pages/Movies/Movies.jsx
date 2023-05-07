@@ -3,11 +3,13 @@ import { useSearchParams } from 'react-router-dom';
 import Searchbar from 'components/Searchbar/Searchbar';
 import { fetchByName } from 'API/API';
 import { MoviesList } from 'components/MoviesList/MoviesList';
+import Loader from 'Loader/Loader';
 
 export default function Movies() {
   const [movies, setMovies] = useState([]);
   const [query, setQuery] = useState('');
   const [searchParams, setSearchParams] = useSearchParams();
+  const isLoaded = movies !== null;
 
   useEffect(() => {
     const query = searchParams.get('query') ?? '';
@@ -29,7 +31,13 @@ export default function Movies() {
   return (
     <>
       <Searchbar onSubmit={handleSubmit} onChange={handleChange} />
-      <MoviesList movies={movies} />
+      {searchParams &&
+        ((!isLoaded && <Loader />) ||
+          (isLoaded && (
+            <>
+              <MoviesList movies={movies} />
+            </>
+          )))}
     </>
   );
 }
