@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { useSearchParams } from 'react-router-dom';
 
 const API_KEY = 'b020810aa3cd987a958ad25364f86170';
 const BASE_URL = 'https://api.themoviedb.org/3';
