@@ -30,7 +30,11 @@ export default function Movies() {
 
   return (
     <>
-      <Searchbar onSubmit={handleSubmit} onChange={handleChange} />
+      <Searchbar
+        onSubmit={handleSubmit}
+        query={searchParams.get('query') ?? ''}
+        onChange={handleChange}
+      />
       {searchParams &&
         ((!isLoaded && <Loader />) ||
           (isLoaded && (
