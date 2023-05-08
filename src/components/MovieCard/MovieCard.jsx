@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import css from './MovieCard.module.css';
+import NoImage from '../Images/noImage.jpeg';
 
 export default function MovieCard({ movie }) {
   const { poster_path, title, release_date, vote_average, overview, genres } =
@@ -11,7 +12,7 @@ export default function MovieCard({ movie }) {
   return (
     <>
       <div className={css.movieCard}>
-        <img src={imgURL} alt={title} width="250" />
+        <img src={poster_path ? imgURL : NoImage} alt={title} width="250" />
         <div className={css.movieSubscribes}>
           <h2>
             {title} ({realiseDate})

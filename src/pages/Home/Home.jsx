@@ -1,7 +1,7 @@
 import { MoviesList } from 'components/MoviesList/MoviesList';
 import { useState, useEffect } from 'react';
 import { fetchTrendsByDay } from '../../API/API';
-import Loader from 'Loader/Loader';
+import Loader from 'components/Loader/Loader';
 import css from './Home.module.css';
 
 const Home = () => {

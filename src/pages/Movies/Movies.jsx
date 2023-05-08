@@ -3,7 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import Searchbar from 'components/Searchbar/Searchbar';
 import { fetchByName } from 'API/API';
 import { MoviesList } from 'components/MoviesList/MoviesList';
-import Loader from 'Loader/Loader';
+import Loader from 'components/Loader/Loader';
 
 export default function Movies() {
   const [movies, setMovies] = useState([]);

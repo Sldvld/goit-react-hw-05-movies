@@ -16,7 +16,7 @@ export default function Reviews() {
   }, [movieId]);
 
   if (!review) {
-    return;
+    return <p>Loading...</p>;
   }
 
   return (
@@ -29,6 +29,7 @@ export default function Reviews() {
           </li>
         ))}
       </ul>
+      {!review.length && <p>This movie has no reviews.</p>}
     </>
   );
 }

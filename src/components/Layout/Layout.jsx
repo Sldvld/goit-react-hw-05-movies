@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
-import Loader from '../../Loader/Loader';
+import Loader from '../Loader/Loader';
 import css from './Layout.module.css';
 
 export default function Layout() {
@@ -9,15 +9,15 @@ export default function Layout() {
     <>
       <header>
         <ul className={css.headerBox}>
-          <li classNmae={css.headerList}>
-            <Link className={css.headerLink} to="/">
+          <li className={css.headerList}>
+            <NavLink className={css.headerLink} to="/">
               Home
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link className={css.headerLink} to="/movies">
+            <NavLink className={css.headerLink} to="/movies">
               Movies
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </header>

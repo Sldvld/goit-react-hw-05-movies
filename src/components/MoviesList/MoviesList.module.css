@@ -29,4 +29,6 @@
 }
 .movieImg {
   border-radius: 2px;
+  width: 250px;
+  height: 370px;
 }
