@@ -1,9 +1,10 @@
 import { Outlet, useLocation, useParams } from 'react-router-dom';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, Suspense } from 'react';
 import MovieCard from 'components/MovieCard/MovieCard';
 import { fetchById } from '../../API/API';
 import { Link } from 'react-router-dom';
 import css from './MovieDetails.module.css';
+import Loader from '../../components/Loader/Loader';
 
 export default function MovieDetails() {
   const [movieDetails, setMovieDetails] = useState(null);
@@ -38,7 +39,9 @@ export default function MovieDetails() {
           </Link>
         </li>
       </ul>
-      <Outlet />
+      <Suspense fallback={<Loader />}>
+        <Outlet />
+      </Suspense>
     </>
   );
 }
